@@ -1,4 +1,6 @@
 from turtle import Turtle
+
+
 STARTING_POINT = [(0, 0), (-20, 0), (-40, 0)]
 MOVE_DISTANCE = 15
 UP = 90
@@ -6,7 +8,7 @@ DOWN = 270
 LEFT = 180
 RIGHT = 0
 
-
+game_is_on = True
 class Snake:
 
     def __init__(self):
@@ -27,12 +29,6 @@ class Snake:
         new_segment.goto(position)
         self.segments.append(new_segment)
 
-    def reset(self):
-        for seg in self.segments:
-            seg.goto(1000,1000)
-        self.segments.clear()
-        self.create_snake()
-        self.head = self.segments[0]
 
     def extend(self):
         self.add_segment(self.segments[-1].position())
@@ -52,6 +48,7 @@ class Snake:
     def down(self):
         if self.head.setheading != UP:
             self.head.setheading(DOWN)
+
 
     def left(self):
         if self.head.setheading != RIGHT:
